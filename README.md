@@ -117,6 +117,14 @@ The server will start on the specified port (default: 5000).
   - `200` OK: Returns paginated sessions.
   - `400` Bad Request: Invalid query parameters.
 
+### 5. Get Session by ID
+
+- URL: `/api/v1/sessions/:sessionId`
+- Method: `GET`
+- Responses:
+  - `200` OK: Returns session details.
+  - `404` Not Found: Session not found.
+
 ## Error Handling
 
 The application uses a global error handler to manage errors gracefully. Errors are logged using Winston and appropriate HTTP status codes are returned to the client.

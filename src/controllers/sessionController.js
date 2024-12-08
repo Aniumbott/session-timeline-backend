@@ -141,3 +141,19 @@ export const getAllSessionsWithPagination = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getSessionById = async (req, res, next) => {
+  try {
+    const session = await Session.findById(req.params.sessionId);
+    if (!session) {
+      return res.status(404).json({ message: 'Session not found' });
+    }
+    res.status(200).json({
+      message: 'Session retrieved successfully',
+      session,
+    });
+  } catch (error) {
+    logger.error('Error retrieving session', { error: error.message });
+    next(error);
+  }
+};

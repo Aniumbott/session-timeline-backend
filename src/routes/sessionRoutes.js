@@ -5,6 +5,7 @@ import {
   logEvent,
   endSession,
   getAllSessionsWithPagination,
+  getSessionById, // Added import
 } from "../controllers/sessionController.js";
 import {
   validateStartSessionData,
@@ -37,5 +38,8 @@ router.post("/sessions/:sessionId/end", endSession);
 
 // Get all sessions with pagination
 router.get("/sessions", getAllSessionsWithPagination);
+
+// Get a session by ID
+router.get("/sessions/:sessionId", getSessionById);
 
 export default router;
