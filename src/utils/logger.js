@@ -1,5 +1,12 @@
+import fs from 'fs';
 import winston from 'winston';
 
+// Check if the logs directory exists, if not, create it
+if (!fs.existsSync("logs")) {
+  fs.mkdirSync("logs");
+}
+
+// Create a new logger instance
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(
